@@ -80,6 +80,23 @@ int main(int argc, char* argv)
 			else
 				cout << "Currently you have no items" << endl;
 		}
+		
+			else if (order == "room items")
+		{
+			if (Character->RoomItems.getFirst())
+			{
+				cout << "Currently in the room there are " << Character->RoomItems.count() << " items" << endl;
+
+				p2List_item<Item*>* tmp = Character->RoomItems.getFirst();
+				for (unsigned int i = 0; i < Character->RoomItems.count(); i++)
+				{
+					cout << "There is: " << tmp->data->Name << endl;
+					tmp = tmp->next;
+				}
+			}
+			else
+				cout << "Currently there're no items in the room." << endl;
+		}
 
 		else if (order == "exits")
 		{
